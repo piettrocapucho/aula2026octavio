@@ -1,0 +1,78 @@
+class Entrega:
+   def __init__(self, distancia, peso):
+       self.distancia = distancia
+       self.peso = peso
+
+
+
+
+class EntregaComum(Entrega):
+   def calcular_frete(self):
+       return self.distancia * 2.00
+
+
+
+
+class EntregaExpressa(Entrega):
+   def calcular_frete(self):
+       return self.distancia * 3.50 + 10.00
+
+
+
+
+while True:
+
+
+   print("\n SISTEMA DE ENTREGAS ")
+   print("1 - Entrega Comum")
+   print("2 - Entrega Expressa")
+   print("0 - Sair")
+
+
+   opcao = input("Escolha uma opção: ")
+
+
+   if opcao == "1":
+
+
+       distancia = float(input("Digite a distância em km: "))
+       peso = float(input("Digite o peso em kg: "))
+
+
+       entrega = EntregaComum(distancia, peso)
+
+
+       print("\n ENTREGA COMUM ")
+       print("Distância:", entrega.distancia, "km")
+       print("Peso:", entrega.peso, "kg")
+       print("Valor do frete: R$", entrega.calcular_frete())
+
+
+   elif opcao == "2":
+
+
+       distancia = float(input("Digite a distância em km: "))
+       peso = float(input("Digite o peso em kg: "))
+
+
+       entrega = EntregaExpressa(distancia, peso)
+
+
+       print("\n ENTREGA EXPRESSA ")
+       print("Distância:", entrega.distancia, "km")
+       print("Peso:", entrega.peso, "kg")
+       print("Valor do frete: R$", entrega.calcular_frete())
+
+
+   elif opcao == "0":
+
+
+       print("Programa encerrado.")
+       break
+
+
+   else:
+
+
+       print("Opção inválida!")
+
