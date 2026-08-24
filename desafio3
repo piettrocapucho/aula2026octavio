@@ -1,0 +1,49 @@
+class Aluno:
+
+
+   def __init__(self, nome, nota):
+       self.nome = nome
+       self._nota = nota
+
+
+   @property
+   def nota(self):
+       return self._nota
+
+
+   @nota.setter
+   def nota(self, valor):
+       if valor < 0 or valor > 10:
+           raise ValueError("A nota deve estar entre 0 e 10.")
+
+
+       self._nota = valor
+
+
+   @property
+   def aprovado(self):
+       return self._nota >= 6
+
+
+
+
+
+
+aluno1 = Aluno("João", 8)
+
+
+print("Nome:", aluno1.nome)
+print("Nota:", aluno1.nota)
+print("Aprovado:", aluno1.aprovado)
+
+
+
+
+aluno1.nota = 5
+
+
+print("\nDepois de alterar a nota:")
+print("Nome:", aluno1.nome)
+print("Nota:", aluno1.nota)
+print("Aprovado:", aluno1.aprovado)
+
