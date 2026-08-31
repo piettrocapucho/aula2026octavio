@@ -1,0 +1,86 @@
+class Ingresso:
+   def __init__(self, evento, preco):
+       self.evento = evento
+       self.preco = preco
+
+
+   def __str__(self):
+       return f"Evento: {self.evento} | Preço: R$ {self.calcular_preco():.2f}"
+
+
+   def __repr__(self):
+       return f"Ingresso('{self.evento}', {self.preco})"
+
+
+
+
+class IngressoInteiro(Ingresso):
+
+
+   def calcular_preco(self):
+       return self.preco
+
+
+
+
+class MeiaEntrada(Ingresso):
+
+
+   def calcular_preco(self):
+       return self.preco * 0.50
+
+
+
+
+while True:
+
+
+   print("\n SISTEMA DE INGRESSOS ")
+   print("1 - Comprar ingresso inteiro")
+   print("2 - Comprar meia-entrada")
+   print("3 - Sair")
+
+
+   opcao = input("Escolha uma opção: ")
+
+
+   if opcao == "1":
+
+
+       evento = input("Digite o nome do evento: ")
+       preco = float(input("Digite o preço do ingresso: R$ "))
+
+
+       ingresso = IngressoInteiro(evento, preco)
+
+
+       print("\n INGRESSO ")
+       print(ingresso)
+
+
+   elif opcao == "2":
+
+
+       evento = input("Digite o nome do evento: ")
+       preco = float(input("Digite o preço do ingresso: R$ "))
+
+
+       ingresso = MeiaEntrada(evento, preco)
+
+
+       print("\n MEIA-ENTRADA ")
+       print(ingresso)
+
+
+   elif opcao == "3":
+
+
+       print("Programa encerrado.")
+       break
+
+
+   else:
+
+
+       print("Opção inválida!")
+
