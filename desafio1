@@ -1,0 +1,87 @@
+class Veiculo:
+   def __init__(self, marca, modelo, ano, valor):
+       self.marca = marca
+       self.modelo = modelo
+       self.ano = ano
+       self.valor = valor
+
+
+
+
+class Carro(Veiculo):
+   def calcular_ipva(self):
+       return self.valor * 0.04
+
+
+
+
+class Moto(Veiculo):
+   def calcular_ipva(self):
+       return self.valor * 0.02
+
+
+
+
+while True:
+
+
+   print("\n SISTEMA DE VEÍCULOS ")
+   print("1 - Cadastrar carro")
+   print("2 - Cadastrar moto")
+   print("3 - Sair")
+
+
+   opcao = input("Escolha uma opção: ")
+
+
+   if opcao == "1":
+
+
+       marca = input("Digite a marca: ")
+       modelo = input("Digite o modelo: ")
+       ano = int(input("Digite o ano: "))
+       valor = float(input("Digite o valor: "))
+
+
+       carro = Carro(marca, modelo, ano, valor)
+
+
+       print("\n CARRO ")
+       print("Marca:", carro.marca)
+       print("Modelo:", carro.modelo)
+       print("Ano:", carro.ano)
+       print("Valor: R$", carro.valor)
+       print("IPVA: R$", carro.calcular_ipva())
+
+
+   elif opcao == "2":
+
+
+       marca = input("Digite a marca: ")
+       modelo = input("Digite o modelo: ")
+       ano = int(input("Digite o ano: "))
+       valor = float(input("Digite o valor: "))
+
+
+       moto = Moto(marca, modelo, ano, valor)
+
+
+       print("\n MOTO ")
+       print("Marca:", moto.marca)
+       print("Modelo:", moto.modelo)
+       print("Ano:", moto.ano)
+       print("Valor: R$", moto.valor)
+       print("IPVA: R$", moto.calcular_ipva())
+
+
+   elif opcao == "3":
+
+
+       print("Programa encerrado.")
+       break
+
+
+   else:
+
+
+       print("Opção inválida!")
