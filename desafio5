@@ -1,0 +1,49 @@
+class Pessoa:
+   def __init__(self, nome, idade):
+       self.nome = nome
+       self.idade = idade
+
+
+   def descricao(self):
+       return f"Nome: {self.nome} | Idade: {self.idade}"
+
+
+
+
+class Aluno(Pessoa):
+   def __init__(self, nome, idade, matricula, curso):
+       super().__init__(nome, idade)
+       self.matricula = matricula
+       self.curso = curso
+
+
+   def descricao(self):
+       return f"Aluno: {self.nome} | Idade: {self.idade} | Matrícula: {self.matricula} | Curso: {self.curso}"
+
+
+
+
+class Professor(Pessoa):
+   def __init__(self, nome, idade, salario, disciplina):
+       super().__init__(nome, idade)
+       self.salario = salario
+       self.disciplina = disciplina
+
+
+   def descricao(self):
+       return f"Professor: {self.nome} | Idade: {self.idade} | Salário: R$ {self.salario:.2f} | Disciplina: {self.disciplina}"
+
+
+
+
+aluno = Aluno("Piettro", 19, "12345", "Ciência de Dados")
+
+
+professor = Professor("Octavio", 34, 100000, "Programação")
+
+
+
+
+print(aluno.descricao())
+print(professor.descricao())
+
