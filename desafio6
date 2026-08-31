@@ -1,0 +1,93 @@
+from abc import ABC, abstractmethod
+
+
+
+
+class Mensagem(ABC):
+
+
+   def __init__(self, conteudo):
+       self.conteudo = conteudo
+
+
+   @abstractmethod
+   def enviar(self):
+       pass
+
+
+
+
+class Email(Mensagem):
+
+
+   def __init__(self, conteudo, destinatario):
+       super().__init__(conteudo)
+       self.destinatario = destinatario
+
+
+   def enviar(self):
+       print(f"\nEnviando e-mail para {self.destinatario}: {self.conteudo}")
+
+
+
+
+class SMS(Mensagem):
+
+
+   def __init__(self, conteudo, numero_telefone):
+       super().__init__(conteudo)
+       self.numero_telefone = numero_telefone
+
+
+   def enviar(self):
+       print(f"\nEnviando SMS para {self.numero_telefone}: {self.conteudo}")
+
+
+
+
+while True:
+
+
+   print("\n SISTEMA DE MENSAGENS ")
+   print("1 - Enviar e-mail")
+   print("2 - Enviar SMS")
+   print("3 - Sair")
+
+
+   opcao = input("Escolha uma opção: ")
+
+
+   if opcao == "1":
+
+
+       destinatario = input("Digite o e-mail do destinatário: ")
+       conteudo = input("Digite a mensagem: ")
+
+
+       email = Email(conteudo, destinatario)
+       email.enviar()
+
+
+   elif opcao == "2":
+
+
+       numero = input("Digite o número de telefone: ")
+       conteudo = input("Digite a mensagem: ")
+
+
+       sms = SMS(conteudo, numero)
+       sms.enviar()
+
+
+   elif opcao == "3":
+
+
+       print("Programa encerrado.")
+       break
+
+
+   else:
+
+
+       print("Opção inválida!")
+
