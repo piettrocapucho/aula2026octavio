@@ -1,0 +1,62 @@
+import logging
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(levelname)s: %(message)s"
+)
+
+logging.info("Início do programa")
+
+
+while True:
+
+    try:
+        print("\n SISTEMA DE PEDIDOS ")
+
+        nome_cliente = input("Nome do cliente: ")
+        nome_produto = input("Nome do produto: ")
+
+        quantidade = int(input("Quantidade: "))
+        valor_unitario = float(input("Valor unitário: R$ "))
+
+
+        if quantidade <= 0 or valor_unitario < 0:
+            logging.warning("Quantidade igual a zero ou valor negativo")
+            print("Quantidade ou valor inválido!")
+            continue
+
+
+        valor_total = quantidade * valor_unitario
+
+
+        logging.debug(
+            f"Cliente: {nome_cliente} | "
+            f"Produto: {nome_produto} | "
+            f"Quantidade: {quantidade} | "
+            f"Valor unitário: R$ {valor_unitario:.2f} | "
+            f"Valor total: R$ {valor_total:.2f}"
+        )
+
+        logging.info("Pedido processado com sucesso")
+
+        print("\n PEDIDO ")
+        print("Cliente:", nome_cliente)
+        print("Produto:", nome_produto)
+        print("Quantidade:", quantidade)
+        print(f"Valor unitário: R$ {valor_unitario:.2f}")
+        print(f"Valor total: R$ {valor_total:.2f}")
+
+        continuar = input("\nDeseja cadastrar outro pedido? (s/n): ")
+
+        if continuar.lower() != "s":
+            break
+
+    except Exception as erro:
+
+        logging.error(f"Erro durante a entrada ou processamento dos dados: {erro}")
+        print("Erro! Verifique os dados informados.")
+
+
+logging.info("Encerramento do programa")
+print("\nPrograma encerrado.")
